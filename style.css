@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background:url('https://images.ctfassets.net/hrltx12pl8hq/1DauLWsEwcnLf4NpCUMxxZ/85290d98239ff0bbee9803932249c444/weather-shutterstock_1716559711.jpg?fit=fill&w=1024&h=683&fm=webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'poppins',sans-serif;
+
+}
