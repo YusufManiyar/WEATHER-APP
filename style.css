@@ -30,7 +30,6 @@ body{
 .date-container{
     font-weight: 100px;
 }
-
 .date-container .time{
     font-size: 70px;
 }
@@ -46,4 +45,20 @@ body{
 
 .place-container{
     text-align: end;
+}
+
+.place-container .time-zone{
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.place-container .country{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.current-info .others{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
