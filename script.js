@@ -6,7 +6,9 @@ const countryEl = document.getElementById('country');
 const weatherforecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 
-
+weatherforecastEl.addEventListener("mouseover",(event) =>{
+    console.log(event.target)
+})
 // const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 // const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -88,18 +90,37 @@ function getDailyWeatherData() {
             return res.json()
             
         }).then(data => {
-            showDailyWeatherData(data);
+            showDailyWeatherData(data?.list);
         }).catch(error=>console.log(error))
     },(error)=> console.log(error))
 }
 
+
 function showDailyWeatherData(data){
-    
-    let {humidity,pressure} = data.main;
-    let {speed} = data.wind;
 
-    weatherforecastEl.innerHTML = 
-`
+    let currentDate = ""
+   
+        data = data.map((currentData)=>{
+        let {dt_txt} = currentData;
+        let date = new Date(dt_txt).getDate()
+        if(date === currentDate) return
+        currentDate = date
+        let {humidity,pressure} = currentData.main;
+        let {speed} = currentData.wind;
+        let day = window.moment(dt_txt).format('ddd HH:mm')
 
-`
+
+            
+        return (`
+        <div class="weather-forecast-item">
+                    <div class="day">${day}</div>
+                    <img src=" http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-item">
+                    <div class="temp">${humidity}&#176;</div>
+                    <div class="temp">${pressure}&#176;</div>
+                    <div class="temp">${speed}&#176;</div>
+
+                </div>
+        `)
+    });
+    weatherforecastEl.innerHTML = data.join(" ")
 }

@@ -79,9 +79,13 @@ body{
     bottom: 0;
     display: flex;
     color: white;
-    width:100%;
-    align-items: center;
+    width:90%;
     justify-content: center;
+    align-items: none;
+    overflow-y: hidden;
+    margin: 20px ;
+    border-radius: 20px;
+    overflow-x: scroll;
 }
 
 .future-forecast .today{
@@ -106,7 +110,7 @@ body{
 }
 
 .future-forecast .weather-forecast{
-    display: flex;
+    display: flex;    
 
 }
 
